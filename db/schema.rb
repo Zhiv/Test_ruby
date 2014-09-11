@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909181803) do
+ActiveRecord::Schema.define(version: 20140911134527) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -29,5 +29,28 @@ ActiveRecord::Schema.define(version: 20140909181803) do
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
+
+  create_table "user_sessions", force: true do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_sessions", ["session_id"], name: "index_user_sessions_on_session_id"
+  add_index "user_sessions", ["updated_at"], name: "index_user_sessions_on_updated_at"
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "username_full"
+    t.string   "email"
+    t.date     "birthday"
+    t.boolean  "sex"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

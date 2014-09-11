@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'authlogic', :git => "git://github.com/binarylogic/authlogic.git"
+#gem "authlogic",   "2.1.6"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
